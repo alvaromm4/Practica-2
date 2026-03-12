@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - Floor
+  - Crossline
+  - Coin
+  - Enemy
+  - Goal
+  - NPC
   layers:
   - Default
   - TransparentFX

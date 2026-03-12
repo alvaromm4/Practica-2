@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
-    [Header("Configuración (Enunciado)")]
     public float tiempoRetardo = 0.25f;
     public float velocidadCaida = 5.0f;
     public float velocidadSubida = 2.0f;

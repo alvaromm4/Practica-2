@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private int n_saltos = 0;
 
+    //static public int num_coins = 0;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -108,5 +110,15 @@ public class PlayerController : MonoBehaviour
             suelo = false;
             if (anim != null) anim.SetBool("Suelo", false);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            anim.SetTrigger("Die");
+            this.enabled = false;
+        }
+
     }
 }

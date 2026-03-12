@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 805710890821747656}
-  - component: {fileID: 8612191762397080304}
+  - component: {fileID: 7032003755712318222}
   m_Layer: 0
   m_Name: Block1
   m_TagString: Floor
@@ -33,8 +33,8 @@ Transform:
   - {fileID: 7685646478232010703}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &8612191762397080304
-MeshCollider:
+--- !u!65 &7032003755712318222
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -51,10 +51,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3070845225984448950, guid: 68fc71a2c365aa74e8bda2fb53b085e2, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.90744925, y: 0.99944496, z: 0.87939596}
+  m_Center: {x: -0.00868392, y: 0.4594313, z: -0.0033915043}
 --- !u!1 &3981638244319677824
 GameObject:
   m_ObjectHideFlags: 0
