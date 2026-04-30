@@ -181,9 +181,10 @@ GameObject:
   - component: {fileID: 5436363026093187685}
   - component: {fileID: 3322557036023974118}
   - component: {fileID: 225721331163447121}
+  - component: {fileID: 6353718384232935068}
   m_Layer: 0
   m_Name: Personaje
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,9 +218,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController2
   speed: 5
+  sprintMultiplier: 2
+  crouchSpeed: 2.5
   jumpForce: 5
-  camara: {fileID: 3364858875096236257}
+  cam: {fileID: 0}
   mouseSensitivity: 200
+  zoomFOV: 40
+  weaponHolder: {fileID: 0}
+  hipPosition: {x: 0, y: 0, z: 0}
+  aimPosition: {x: 0, y: 0, z: 0}
+  aimSpeed: 10
+  crouchHeightY: 1
 --- !u!54 &3322557036023974118
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -268,6 +277,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.804574, y: 4.127907, z: 1.9731865}
   m_Center: {x: 0.902287, y: 1.3341068, z: -6.4198055}
+--- !u!114 &6353718384232935068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7818749586738140233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f15589b8f45164fb71c4b758efae1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  life: 100
 --- !u!1001 &8448962498051938519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -355,5 +377,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Shoot
   prefabBala: {fileID: 7556121088006503295, guid: 6a6f83bc88d78b54a9d11b6d2440e1e9, type: 3}
   puntoDisparo: {fileID: 9220776178134238101}
-  velocidadBala: 150
+  velocidadBala: 200
   weaponRange: 100
+  fireRate: 0.1

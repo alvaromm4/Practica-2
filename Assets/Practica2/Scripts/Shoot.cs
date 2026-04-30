@@ -6,40 +6,45 @@ public class Shoot : MonoBehaviour
     [SerializeField] private Transform puntoDisparo;
     [SerializeField] private float velocidadBala = 20f;
     [SerializeField] private float weaponRange = 100.0f;
+    [SerializeField] private float fireRate = 0.1f;
+    private float nextFire = 0f;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && Time.time > nextFire)
         {
-            Disparar();
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Laser();
+            nextFire = Time.time + fireRate;
+            DispararProyectilVisual();
+            DispararLogicaRaycast();
         }
     }
 
-    void Disparar()
+    void DispararProyectilVisual()
     {
         GameObject balaTemporal = Instantiate(prefabBala, puntoDisparo.position, puntoDisparo.rotation);
+        Rigidbody rbBala = balaTemporal.GetComponent<Rigidbody>();
 
-        Rigidbody rb = balaTemporal.GetComponent<Rigidbody>();
-
-        if (rb != null)
+        if (rbBala != null)
         {
-            rb.linearVelocity = puntoDisparo.forward * velocidadBala;
+            rbBala.linearVelocity = puntoDisparo.forward * velocidadBala;
         }
 
-        Destroy(balaTemporal, 3f);
+        Destroy(balaTemporal, 2f);
     }
 
-    void Laser()
+    void DispararLogicaRaycast()
     {
         RaycastHit hit;
-        Debug.DrawRay(puntoDisparo.position, puntoDisparo.TransformDirection(Vector3.forward) * 1000.0f, Color.green);
-        if (Physics.Raycast(puntoDisparo.position, puntoDisparo.TransformDirection(Vector3.forward), out hit, weaponRange))
+
+        if (Physics.Raycast(puntoDisparo.position, puntoDisparo.forward, out hit, weaponRange))
         {
-            Debug.DrawRay(puntoDisparo.position, puntoDisparo.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            Health objetoVida = hit.collider.GetComponent<Health>();
+
+            if (objetoVida != null)
+            {
+                objetoVida.TakeDamage(50);
+                Debug.Log("Le has dado a: " + hit.collider.name);
+            }
         }
     }
 }
